@@ -2,7 +2,7 @@ from math import gcd
 import random
 
 
-def eucledean_gcd(a, b):
+def euclidean_gcd(a, b):
   while a % b != 0:
     r = a % b
     a = b
@@ -20,7 +20,7 @@ def chatgpt_recurse_gcd(a, b):
   return a if b == 0 else chatgpt_recurse_gcd(b, a % b)
 
 
-euclead = lambda a, b: euclead(b, a % b) if b else a
+euclid = lambda a, b: euclid(b, a % b) if b else a
 
 # testing my implementation
 
@@ -31,11 +31,11 @@ def testing_my_func():
   # return [False for a, b in test if gcd(a, b) != eucledean_gcd(a, b)]
 
   # returns the number of false or inequalities
-  return sum(gcd(a, b) != eucledean_gcd(a, b) for a, b in test)
+  return sum(gcd(a, b) != euclidean_gcd(a, b) for a, b in test)
 
 
 # print(testing_my_func())
 
 a, b = 66528, 52920
 
-print(eucledean_gcd(a, b))
+print(euclidean_gcd(a, b))
