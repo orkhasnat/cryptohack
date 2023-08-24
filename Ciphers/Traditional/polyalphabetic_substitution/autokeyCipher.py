@@ -1,28 +1,31 @@
 ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 ALPHABET_SIZE = len(ALPHABET)
 
+normalise = lambda ch: ord(ch) - ord(ALPHABET[0])
+denormalise = lambda x: chr(x + ord(ALPHABET[0]))
+
 
 def encode(inp: str, key: int) -> str:
   res = []
   for x in inp:
     if x in ALPHABET:
-      res.append((ord(x) - ord(ALPHABET[0]) + key) % ALPHABET_SIZE)
-      key = ord(x) - ord(ALPHABET[0])
+      res.append((normalise(x) + key) % ALPHABET_SIZE)
+      key = normalise(x)
     else:
-      res.append(ord(x) - ord(ALPHABET[0]))
-  return "".join(map(lambda ch: chr(ch + ord(ALPHABET[0])), res))
+      res.append(normalise(x))
+  return "".join(map(lambda ch: denormalise(ch), res))
 
 
 def decode(inp: str, key: int) -> str:
   res = []
   for x in inp:
     if x in ALPHABET:
-      cipherChar = (ord(x) - ord(ALPHABET[0]) - key) % ALPHABET_SIZE
+      cipherChar = (normalise(x) - key) % ALPHABET_SIZE
       res.append(cipherChar)
       key = cipherChar
     else:
-      res.append(ord(x) - ord(ALPHABET[0]))
-  return "".join(map(lambda ch: chr(ch + ord(ALPHABET[0])), res))
+      res.append(normalise(x))
+  return "".join(map(lambda ch: denormalise(ch), res))
 
 
 inp = input()
