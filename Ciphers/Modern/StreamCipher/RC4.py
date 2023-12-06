@@ -25,4 +25,6 @@ class RC4:
 			self.state[self.x], self.state[self.y] = self.state[self.y], self.state[self.x]
 			output[i] = (data[i] ^ self.state[(self.state[self.x] + self.state[self.y]) & 0xFF])
 		return bytearray(output)
+
+	# TODO: Encrypt ??
 		
