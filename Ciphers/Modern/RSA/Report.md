@@ -1,9 +1,3 @@
-# Tasnimul Hasnat
-# 190041113
-## CSE-4743
-## December 31, 2023
-
----
 # RSA Cryptosystem
 
 ## Overview

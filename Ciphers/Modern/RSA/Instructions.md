@@ -1,9 +1,3 @@
-# Tasnimul Hasnat
-# 190041113
-## CSE-4743
-## December 31, 2023
-
----
 # Usage
 
 The Python Script can be used both as a **standalone script** or a **module** that can be imported.
